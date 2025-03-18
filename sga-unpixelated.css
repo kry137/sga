@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SGA-unpixel';
+    src: url('standard-galactic-alphabet-unpixelated/standard-galactic-alphabet-unpixelated.ttf');
+}
+
+* {
+    font-family: 'SGA-unpixel' !important;
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SGA';
+    src: url('sga-font/sga-font.ttf');
+}
+
+* {
+    font-family: 'SGA' !important;
+}

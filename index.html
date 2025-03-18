@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mencocokkan Huruf</title>
+    <style>
+        @font-face {
+            font-family: 'SGA';
+            src: url('sga-font/sga-font.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .top, .bottom {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top {
+            font-size: 100px;
+            font-family: 'SGA', sans-serif;
+        }
+
+        .bottom {
+            display: flex;
+            gap: 20px;
+        }
+
+        .option {
+            font-size: 50px;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .option:hover {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="top" id="targetLetter">?</div>
+        <div class="bottom" id="options"></div>
+    </div>
+
+    <script>
+        const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+
+        function getRandomLetter() {
+            return letters[Math.floor(Math.random() * letters.length)];
+        }
+
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function generateGame() {
+            const targetLetter = getRandomLetter();
+            document.getElementById("targetLetter").textContent = targetLetter;
+
+            let choices = [targetLetter];
+            while (choices.length < 4) {
+                let randomLetter = getRandomLetter();
+                if (!choices.includes(randomLetter)) {
+                    choices.push(randomLetter);
+                }
+            }
+
+            choices = shuffleArray(choices);
+            const optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+
+            choices.forEach(letter => {
+                const button = document.createElement("div");
+                button.className = "option";
+                button.textContent = letter;
+                button.onclick = () => {
+                    if (letter === targetLetter) {
+                        generateGame();
+                    }
+                };
+                optionsDiv.appendChild(button);
+            });
+        }
+
+        generateGame();
+    </script>
+
+</body>
+</html>
