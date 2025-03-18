@@ -3,8 +3,12 @@
 Project ini tidak di-khususkan untuk penggunaan komersial, hanya untuk tujuan penggunaan pribadi dan pembelajaran.
 
 ## 📂 SGA Pixel
-[Gunakan SGA Pixel](https://raw.githubusercontent.com/kry137/sga/main/sga.css)
+```html
+<link rel="stylesheet" href="https://kry137.github.io/sga/sga.css">
+```
 
 ## 📂 SGA Unpixel
-[Gunakan SGA Unpixel](https://raw.githubusercontent.com/kry137/sga/main/sga-unpixelated.css)
+```html
+<link rel="stylesheet" href="https://kry137.github.io/sga/sga-unpixelated.css">
+```
 
